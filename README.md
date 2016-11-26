@@ -4,7 +4,6 @@
     str2 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis dolor mauris, at elementum ligula tempor eget. In quis rhoncus nunc, at aliquet orci. Fusce at dolor sit amet felis suscipit tristique. Nam a imperdiet tellus. Nulla eu vestibulum urna. Vivamus tincidunt suscipit enim, nec ultrices nisi volutpat ac. Maecenas sit amet lacinia arcu, non dictum justo. Donec sed quam vel risus faucibus euismod. Suspendisse rhoncus rhoncus felis at fermentum. Donec lorem magna, ultricies a nunc sit amet, blandit fringilla nunc. In vestibulum velit ac felis rhoncus pellentesque. Mauris at tellus enim. Aliquam eleifend tempus dapibus. Pellentesque commodo, nisi sit amet hendrerit fringilla, ante odio porta lacus, ut elementum justo nulla et dolor."
 
     var justify = function(str, len) {
-        console.log(str)
         res = str.split(' ');
         var arr = new Array('');
         arr[0] 
@@ -13,7 +12,7 @@
             res[i] = res[i] + ' ';
         }
         for (var i = 0; i < res.length; i++) {
-            if (arr[j].length + res[i].length > len) {
+            if (arr[j].length + res[i].length > len + 1) {
                 j++;
                 arr.push('')
             }
@@ -23,14 +22,13 @@
         for (var i = 0; i < arr.length - 1; i++) {
             arr[i] = arr[i].addSpaces(len);
         }
-        //arr = arr.map(x => x.addSpaces(len));
         return arr.join('\n')
     };
 
     String.prototype.addSpaces = function (len) {
         var add_count = len - this.length + 1;
         var res = this.split(' ');
-        if (res.length == 1) return res;
+        if (res.length == 2) return res.join('');
         for (var i = 0; i < res.length - 2; i++) {
             res[i] = res[i] + ' '
         }
